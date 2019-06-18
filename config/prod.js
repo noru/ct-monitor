@@ -1,4 +1,4 @@
 module.exports = {
-  publicPath: '/cpmboard/ruijin/build/',
+  publicPath: '/ct-monitor',
   basename: '',
 }
