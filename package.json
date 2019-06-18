@@ -11,7 +11,7 @@
   },
   "bugs": "https://github.com/noru/my-react-boilerplate/issues",
   "scripts": {
-    "clean": "cross-env rimraf build",
+    "clean": "cross-env rimraf docs",
     "dev": "cross-env USE_MOCK=true node ./src/devServer.js",
     "build": "npm run clean && cross-env NODE_ENV=production webpack --config ./config/webpack.config.prod.js --progress",
     "build:fake": "npm run clean && cross-env NODE_ENV=production USE_MOCK=true webpack --config ./config/webpack.config.prod.js --progress",

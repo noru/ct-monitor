@@ -1,0 +1,52 @@
+{
+  "app_name": "APP NAME",
+
+  "label": {
+    "device_pic": "设备图片",
+    "prep1": "准备时间1",
+    "prep2": "准备时间2",
+    "manufacturer": "制造商",
+    "view": "查看",
+    "null": "无",
+    "edit": "编辑",
+    "del": "删除",
+    "editing_device": "设备编辑",
+    "ae_title": "设备编号",
+    "pattern": "设备型号",
+    "asset_name": "资产名称",
+    "site": "院区",
+    "install_location" : "安装地点",
+    "department": "科室",
+    "upload": "上传",
+    "minute": "分钟"
+  },
+
+  "index" : {
+    "box_title01"     : "核磁共振成像",
+    "box_subtitle01"  : "MR",
+    "box_title02"     : "计算机断层扫描",
+    "box_subtitle02"  : "CT",
+    "box_title03"     : "血管机",
+    "box_subtitle03"  : "IGS",
+    "box_title04"     : "直线加速器",
+    "box_subtitle04"  : "Radiotherapy linear accelerator",
+    "detail"          : "详细",
+    "box_title_default" : "未选择设备"
+  },
+
+  "department" : {
+    "check_by_area" : "通过科室查看",
+    "check_by_list" : "通过列表查看",
+
+    "list" :  {
+      "title" : "设备编号",
+      "location" : "安装地点",
+      "name" : "资产名称",
+      "org_name" : "科室",
+      "pattern" : "设备型号",
+      "site" : "院区",
+      "operation" : "操作",
+      "check" : "查看"
+    }
+  }
+}
