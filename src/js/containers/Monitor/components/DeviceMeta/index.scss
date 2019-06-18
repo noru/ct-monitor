@@ -1,0 +1,29 @@
+.device-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .device-image {
+    margin-bottom: 4em;
+    flex: 1;
+    img {
+      width: auto;
+      height: 180px;
+    }
+
+  }
+  .device-info {
+
+    flex: 1;
+    h1 {
+      color: white;
+      font-size: 1.2em;
+      text-align: center;
+      margin-bottom: .5em;
+    }
+    label {
+      margin-right: 1.5em;
+    }
+
+  }
+}

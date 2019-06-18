@@ -1,0 +1,18 @@
+.clock-container {
+
+  > * {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 1em;
+  }
+
+  .clock-flipper {
+    font-size: 1.5em;
+    line-height: .8;
+
+    .flipUnitContainer {
+      margin-right: .5em;
+      min-width: 2em;
+    }
+  }
+}

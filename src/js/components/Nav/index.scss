@@ -1,0 +1,18 @@
+.navbar {
+  &.tabs {
+    background: transparent;
+    ul {
+      border: none;
+      li {
+        padding: 0 1.5em;
+      }
+      li > a {
+        color: white;
+        border: none;
+      }
+      li.is-active > a {
+        border-bottom: 2px solid #01d7ff;
+      }
+    }
+  }
+}

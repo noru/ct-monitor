@@ -1,0 +1,149 @@
+
+$easeInOut: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+
+$turnDuration: 0.6s;
+
+@mixin animate($name, $easing, $duration: 300ms, $delay: 0s, $iteration: 1, $direction: normal, $fill-mode: forwards) {
+  animation: $name $duration $easing $delay $iteration $direction $fill-mode
+}
+
+$border: #8a8a8a;
+$border-radius: 4px;
+
+.flipUnitContainer {
+  display: inline-block;
+  position: relative;
+  perspective-origin: 50% 50%;
+  perspective: 300px;
+  border-radius: 3px;
+  box-shadow: 0px 10px 10px -10px grey;
+  background-color: #2b2b2b;
+
+
+  &::before,
+  &::after {
+    content: '';
+    background: linear-gradient(to bottom, #a5a5a5 0%, #5e5e5e 100%);
+    width: 1px;
+    height: .3em;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 9999999999;
+  }
+  &::before {
+    left: 3px;
+  }
+  &::after {
+    right: 3px;
+  }
+
+}
+
+.upperCard, .lowerCard {
+
+  display: flex;
+  position: relative;
+  justify-content: center;
+  width: 100%;
+  height: 50%;
+  overflow: hidden;
+  border: 1px solid $border;
+
+}
+
+.upperCard {
+  align-items: flex-end;
+  border-bottom: 0.5px solid $border;
+  border-top-left-radius: $border-radius;
+  border-top-right-radius: $border-radius;
+  span {
+    transform: translateY(50%);
+  }
+}
+
+
+.lowerCard {
+
+  align-items: flex-start;
+  border-top: 0.5px solid $border;
+  border-bottom-left-radius: $border-radius;
+  border-bottom-right-radius: $border-radius;
+
+  span {
+    transform: translateY(-50%);
+  }
+}
+
+.flipCard {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  overflow: hidden;
+  backface-visibility: hidden;
+  background-color: #2b2b2b;
+
+  &.unfold {
+
+    top: 50%;
+    align-items: flex-start;
+    transform-origin: 50% 0%;
+    transform: rotateX(180deg);
+    border-bottom-left-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+    border: 1px solid $border;
+    border-top: 0.5px solid $border;
+
+    span {
+      transform: translateY(-50%);
+    }
+  }
+
+  &.fold {
+    top: 0%;
+    align-items: flex-end;
+    transform-origin: 50% 100%;
+    transform: rotateX(0deg);
+    border-top-left-radius: $border-radius;
+    border-top-right-radius: $border-radius;
+    border: 0.5px solid $border;
+    border-bottom: 0.5px solid $border;
+
+    span {
+      transform: translateY(50%);
+    }
+  }
+
+}
+
+.fold {
+  @include animate(fold, $easeInOut, 0.6s);
+  transform-style: preserve-3d;
+}
+
+.unfold {
+  @include animate(unfold, $easeInOut, 0.6s);
+  transform-style: preserve-3d;
+}
+
+@keyframes fold {
+  0% {
+    transform: rotateX(0deg);
+  }
+  100% {
+    transform: rotateX(-180deg);
+  }
+}
+
+@keyframes unfold {
+  0% {
+    transform: rotateX(180deg);
+  }
+  100% {
+    transform: rotateX(0deg);
+  }
+}

@@ -1,0 +1,24 @@
+.device-board {
+
+  padding: 2em 0;
+  display: flex;
+  align-items: center;
+
+  .device-feed {
+    font-size: 12px;
+    margin-left: 3em;
+    .clock-flipper {
+      span {
+        padding: 0 .8em;
+      }
+      .flipUnitContainer {
+        margin-right: .35em;
+      }
+    }
+    .count-flipper {
+      .flipUnitContainer {
+        margin-right: 2px;
+      }
+    }
+  }
+}

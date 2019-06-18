@@ -1,0 +1,51 @@
+.monitor {
+  background: url(../../../assets/img/monitor-bg.jpg) no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  color: white;
+
+  .clock {
+    position: absolute;
+    right: 3em;
+    top: 1.5em;
+    font-size: 14px;
+  }
+  .rc-animate {
+    position: relative;
+    .animate-wrapper {
+      position: absolute;
+      width: 100%;
+    }
+  }
+  .board-container {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .pagination {
+    position: absolute;
+    bottom: 3em;
+    left: 50%;
+    transform: translateX(-50%);
+
+    .ant-pagination-prev,
+    .ant-pagination-next,
+    .ant-pagination-item,
+    .ant-pagination-item-link {
+      background-color: transparent;
+      color: white;
+      border: none;
+      height: 24px;
+      line-height: 24px;
+      min-width: 24px;
+      a {
+        color: white;
+      }
+    }
+    .ant-pagination-item-active {
+      color: transparent;
+      background-color: #05d1f8;
+    }
+  }
+
+}

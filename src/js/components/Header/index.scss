@@ -1,0 +1,26 @@
+.header {
+
+  padding: .5em 1em;
+
+  > * {
+    vertical-align: middle;
+  }
+
+  .header-title {
+    font-size: 12px;
+  }
+
+  img.header-logo {
+    height: 30px;
+    width: 30px;
+    margin-right: 8px;
+  }
+  .navbar.tabs {
+    display: inline-block;
+    margin-left: 2em;
+    > ul {
+      margin-top: 6px;
+    }
+  }
+
+}
