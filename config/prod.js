@@ -1,4 +1,4 @@
 module.exports = {
-  publicPath: '/ct-monitor',
+  publicPath: '/ct-monito/',
   basename: '',
 }
