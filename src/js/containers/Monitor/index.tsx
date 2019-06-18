@@ -12,7 +12,6 @@ import { connect } from 'dva'
 import './index.scss'
 
 export class Monitor extends React.Component<any, any> {
-
   _loopId: any = 0
 
   state = {
@@ -29,12 +28,16 @@ export class Monitor extends React.Component<any, any> {
       }
     }
     node.style.right = '-100vw'
-    velocity(node, {
-      right: 0,
-    }, {
-      duration: 1000,
-      complete,
-    })
+    velocity(
+      node,
+      {
+        right: 0,
+      },
+      {
+        duration: 1000,
+        complete,
+      },
+    )
     return {
       stop() {
         velocity(node, 'finish')
@@ -53,12 +56,16 @@ export class Monitor extends React.Component<any, any> {
       }
     }
 
-    velocity(node, {
-      right: '100vw',
-    }, {
-      duration: 1000,
-      complete,
-    })
+    velocity(
+      node,
+      {
+        right: '100vw',
+      },
+      {
+        duration: 1000,
+        complete,
+      },
+    )
     return {
       stop() {
         velocity(node, 'finish')
@@ -92,15 +99,14 @@ export class Monitor extends React.Component<any, any> {
 
     let displayDevices = devices.slice((currentPage - 1) * 2, currentPage * 2)
 
-    let dsiplayData = displayDevices.map(d =>   data[d.aeTitle])
-      .map(transformData)
+    let dsiplayData = displayDevices.map(d => data[d.aeTitle]).map(transformData)
 
     return (
       <div className="monitor">
-        <Header t={t} actived="monitor"/>
+        <Header t={t} actived="monitor" />
         <div className="clock">
           <label>{t`当前时间`}:</label>
-          <Clock/>
+          <Clock />
         </div>
         <Animate
           className="rc-animate"
@@ -112,10 +118,10 @@ export class Monitor extends React.Component<any, any> {
         >
           <div className="animate-wrapper" key={currentPage}>
             <div className="board-container">
-              {
-                displayDevices.map((d, i) => {
-
-                  return <Board key={i}
+              {displayDevices.map((d, i) => {
+                return (
+                  <Board
+                    key={i}
                     img={getImgByType(d.deviceType)}
                     location={d.location}
                     name={d.name}
@@ -124,21 +130,21 @@ export class Monitor extends React.Component<any, any> {
                     vendor={d.manufacture}
                     data={dsiplayData[i]}
                   />
-                })
-              }
+                )
+              })}
             </div>
           </div>
         </Animate>
 
-            <div className="pagination">
-              <Pagination
-                current={currentPage}
-                total={devices.length}
-                defaultPageSize={2}
-                hideOnSinglePage
-                onChange={this.go2Page}
-              />
-            </div>
+        <div className="pagination">
+          <Pagination
+            current={currentPage}
+            total={devices.length}
+            defaultPageSize={2}
+            hideOnSinglePage
+            onChange={this.go2Page}
+          />
+        </div>
       </div>
     )
   }
@@ -150,7 +156,7 @@ export default flow(
   connect(state => {
     return {
       devices: state.device.devices,
-        data: state.device.monitorData,
+      data: state.device.monitorData,
     }
   }) as any,
 )
@@ -161,7 +167,7 @@ function transformData(data) {
     {
       title: <FBTitle icon="icon-switch.svg" text="开机时间" />,
       type: 'clock',
-      value: new Date(data.uptime || '0'),
+      value: new Date(data.uptime || 0),
       footer: '昨日开机时间: ' + data.yestodayuptime || 'N/A',
     },
     {
@@ -179,7 +185,7 @@ function transformData(data) {
     {
       title: <FBTitle icon="icon-stethoscope.svg" text="上一个检查完成时间" />,
       type: 'clock',
-      value: new Date(data.laststudytime || '0'),
+      value: new Date(data.laststudytime || 0),
     },
   ]
 }

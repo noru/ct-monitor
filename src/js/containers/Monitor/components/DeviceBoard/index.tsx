@@ -6,24 +6,21 @@ import FlipBoard, { Props as FlipBoardProps } from '../FlipBoard'
 import './index.scss'
 
 export interface Props {
-  img     : string
-  id      : string
-  name    : string
-  type    : string
-  vendor  : string
+  img: string
+  id: string
+  name: string
+  type: string
+  vendor: string
   location: string
-  data    : FlipBoardProps[]
+  data: FlipBoardProps[]
 }
 
-const DeviceBoard: React.SFC<Props> = (props) => {
-
+const DeviceBoard: React.SFC<Props> = props => {
   let { data, ...rest } = props
   return (
     <div className="device-board">
       <DeviceMeta {...rest} />
-      <div className="device-feed">
-        { data.map((d, i) => <FlipBoard key={i} {...d}/>) }
-      </div>
+      <div className="device-feed">{data.map((d, i) => <FlipBoard key={i} {...d} />)}</div>
     </div>
   )
 }
